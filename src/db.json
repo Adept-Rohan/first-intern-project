@@ -1,0 +1,21 @@
+[{
+    "id": 1,
+    "text": "Furniture",
+    "image" : "src/img/furniture.png"
+}, {
+    "id": 2,
+    "text": "Handbag",
+    "image" : "src/img/handbag.png"
+}, {
+    "id": 3,
+    "text": "Book",
+    "image" : "src/img/book.png"
+}, {
+    "id": 4,
+    "text": "Tech",
+    "image" : "src/img/tech.png"
+}, {
+    "id": 5,
+    "text": "Sneakers",
+    "image" : "src/img/sneaker.png"
+}] 
