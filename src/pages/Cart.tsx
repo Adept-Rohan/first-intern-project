@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { card } from "@/tailwindvariant/Tailwindvariant";
-import { useSelector } from "react-redux";
+
 
 const Cart : FunctionComponent = () =>{
     const {heading} = card()

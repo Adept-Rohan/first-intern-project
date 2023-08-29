@@ -56,7 +56,7 @@ const SingleProduct : FunctionComponent = ()=>{
                  description: details.description
               })) && toast.success('Added To The Cart',{
                 position : 'top-left',
-                autoClose : 2000,
+                autoClose : 1000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover : true,
