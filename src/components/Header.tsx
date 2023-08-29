@@ -76,7 +76,7 @@ const Header: FunctionComponent = () => {
            <button onClick={()=> setMenu(!menu)} >{data? <div>{data.email}</div> : <div>Register</div>   }</button>
 
             {
-                menu ? <div className='z-50 w-40 h-18 p-3 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-5'>
+                menu ? <div className='z-50 w-40 h-18 p-3 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12  right-5'>
              <Link to='/signin'><p onClick={()=> setMenu(!menu)} className={link()} >Sign In</p></Link>   
              <Link to='/register'><p onClick={()=> setMenu(!menu)} className={link()} >Register</p>
              {
