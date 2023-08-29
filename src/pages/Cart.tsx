@@ -1,10 +1,22 @@
 import { FunctionComponent } from "react";
-
+import { card } from "@/tailwindvariant/Tailwindvariant";
+import { useSelector } from "react-redux";
 
 const Cart : FunctionComponent = () =>{
+    const {heading} = card()
+    const data = useSelector((state:any)=> state.cart)
+    console.log(data)
+    
     return(
 <>
-<h1>Welcome To The Cart Page.</h1>
+<div className="text-center mt-4">
+<h1 className={heading()}>Welcome To The Cart Page.</h1>
+</div>
+<div>
+
+</div>
+
+
 </>
     )
 }

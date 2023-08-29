@@ -8,6 +8,8 @@ import {store} from './redux/Store'
 import Cart from './pages/Cart'
 import {QueryClient , QueryClientProvider} from '@tanstack/react-query'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
+import Footer from './components/Footer'
+import SingleProduct from './components/SingleProduct'
 
 const Layout = () =>{
   return (
@@ -15,6 +17,7 @@ const Layout = () =>{
       <Header/>
       <ScrollRestoration/>
       <Outlet/>
+      <Footer/>
     </div>
   )
 }
@@ -32,6 +35,11 @@ const router = createBrowserRouter([
         path:'/signin',
         element : <Login/>
       },
+      {
+         path : '/product/:id',
+         element : <SingleProduct/>
+      },
+
       {
         path: '/register',
         element: <Register/>

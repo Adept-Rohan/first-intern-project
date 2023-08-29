@@ -1,6 +1,7 @@
 import Advertisement from "@/components/Advertisement";
 import Category from "@/components/Category";
 import Product from "@/components/Product";
+import UserTestimony from "@/components/UserTestimony";
 import { FunctionComponent } from "react";
 
 const Home : FunctionComponent = () =>{
@@ -9,6 +10,7 @@ const Home : FunctionComponent = () =>{
        <Advertisement/>
        <Category/>
        <Product/>
+       <UserTestimony/>
      </>
     )
 }

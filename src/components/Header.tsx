@@ -7,10 +7,11 @@ import {useSelector} from 'react-redux'
 import {removeDetail} from '../redux/UserReducer'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
-// interface Props {
-//   name: string;
-//   age: number;
-// }
+
+
+type UserProps ={
+  user : any;
+}
 
 const Header: FunctionComponent = () => {
   
@@ -19,7 +20,7 @@ const Header: FunctionComponent = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const data = useSelector((user) => user.user.user)
+  const data = useSelector<UserProps>((user) => user.user.user)
   console.log(data)
 
   const [menu , setMenu] = useState(false)
@@ -45,7 +46,7 @@ const Header: FunctionComponent = () => {
         </div>
      <div className='flex items-center justify-between py-2 px-8 border-b-gray-700 shadow-xl'>
       <div>
-    <Link to='/'><img src="src/img/logo.svg" alt="" /></Link>    
+    <Link to='/'><img src='src/img/logo.svg' alt="" /></Link>    
       </div>
       <div className='flex items-center gap-8'>
      <Link to='/'><p>Home</p></Link>   

@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -9,8 +9,7 @@ import { card } from '../tailwindvariant/Tailwindvariant';
 import { useDispatch } from "react-redux";
 import { setDetail } from '../redux/UserReducer';
 import { useNavigate } from 'react-router-dom';
-import {toast} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
+
 
 interface FormData {
     email: string;
@@ -19,7 +18,7 @@ interface FormData {
 
 const Login: FunctionComponent = () => {
 
-    const [success , setSuccess] = useState(false)
+    
 
     const firebaseAuth = getAuth(app);
 
@@ -47,32 +46,16 @@ const Login: FunctionComponent = () => {
         signInWithEmailAndPassword(firebaseAuth, data.email, data.password)
             .then((UserCredential) => {
                 console.log(UserCredential);
-                dispatch(setDetail(UserCredential.user));
-                setSuccess(!success)
-                toast.success("Looged In Succesfully" ,{
-                    position : "top-center",
-                    autoClose : 500,
-                    hideProgressBar: false,
-                    closeOnClick : true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme : 'colored'
-                } )
+                localStorage.setItem('user' , JSON.stringify(UserCredential.user))
+                 dispatch(setDetail({ displayname: UserCredential.user.displayName , email: UserCredential.user.email }));
+
+               
+                
                 navigate('/');
             })
             .catch((error) => {
                 console.log(error);
-                toast.error("Looged In Failed" ,{
-                    position : "top-center",
-                    autoClose : 500,
-                    hideProgressBar: false,
-                    closeOnClick : true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme : 'colored'
-                } )
+               
             });
         reset();
     };
@@ -102,18 +85,7 @@ const Login: FunctionComponent = () => {
                                             <input {...register("password")} type="password" name="password" id="password" placeholder="••••••••" className={input()} />
                                             <p className={error()}>{errors?.password?.message}</p>
                                         </div>
-                                        <button type="submit" onClick={()=>{
-                                            toast.success("Looged In Succesfully" ,{
-                                                position : "top-center",
-                                                autoClose : 500,
-                                                hideProgressBar: false,
-                                                closeOnClick : true,
-                                                pauseOnHover: true,
-                                                draggable: true,
-                                                progress: undefined,
-                                                theme : 'colored'
-                                            } )
-                                        }} className={search()}>Sign Up </button>
+                                        <button type="submit"  className={search()}>Sign Up </button>
 
                                         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                             Don’t have an account yet? <span className="text-green-600 cursor-pointer">Register Now</span>

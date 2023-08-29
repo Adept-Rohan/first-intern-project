@@ -1,0 +1,38 @@
+[
+
+    {
+      "author"    : "Jerry Weng",
+      "location"     : "Co-founder, CHOCOLABS",
+      "content"  : "There are many advantages to taking an API-first development approach. And with the help of tools like RAML, APIs have become more elastic and easier to use. I truly recommened the use of this e-commerce site for your day to day shooping life. I can proudly tell you this is one of the most fascinating you will ever come across the internet today.",
+      "image" : "src/img/test1.jpg",
+      "id" : 1
+    }
+  ,
+  
+    {
+      "author"    : "Renzo Kottmann",
+      "location"     : "Microbial Genomics and Bioinformatics Research GroupMax Planck Institute for marine Microbiology",
+      "content"  : "We started using RAML for API specification. It helps us a lot with communicating requirements to our offshore partner. I was comparing it to Swagger and WADL and found that RAML strikes a better balance between technical aspects and human readability … I like the simple API versioning feature of RAML.",
+      "image" : "src/img/test2.jpg",
+      "id" : 2
+    }
+  ,
+  
+    {
+      "author"    : "Martha Stuart",
+      "location"     : "Solutions Architect, British Sky Broadcasting",
+      "content"  : "By adopting RAML, our design-first ethos has been significantly improved by having a single source of truth for all the APIs we publish.",
+      "image" : "src/img/test3.jpg",
+      "id" : 3
+    }
+    ,
+    {
+        "author"    : "Natasha Kauffman",
+        "location"     : "Solutions Architect, British Sky Broadcasting",
+        "content"  : "With great Vairety of Products I can proudly say this is your only destination for shooping exquistive clothing brand and products.",
+        "image" : "src/img/test4.jpg",
+        "id" :4
+      }
+  
+  
+  ]

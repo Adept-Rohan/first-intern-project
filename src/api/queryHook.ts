@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 
 export const queryHook = () => {
     return useQuery(['product'], () => {
-        return axios.get('https://fakestoreapi.com/products')
+        return axios.get('https://fakestoreapiserver.reactbd.com/products')
             .then((res) => {
                 console.log(res);
                 return res.data;
