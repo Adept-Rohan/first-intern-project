@@ -7,11 +7,15 @@ import {useSelector} from 'react-redux'
 import {removeDetail} from '../redux/UserReducer'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
+import List from './List';
 
 
 type UserProps ={
   user : any;
 }
+
+
+
 
 const Header: FunctionComponent = () => {
   
@@ -24,6 +28,15 @@ const Header: FunctionComponent = () => {
   console.log(data)
 
   const [menu , setMenu] = useState(false)
+
+  const [inputText , setInputText] = useState("")
+
+  const handleInput = (e:any) =>{
+      let lowerCase = e.target.value.toLowerCase()
+      setInputText(lowerCase)
+  }
+
+  console.log(inputText)
 
   const logOut = () =>{
     setMenu(!menu)
@@ -54,7 +67,8 @@ const Header: FunctionComponent = () => {
       </div>
       <div className='relative'>
         <AiOutlineSearch className = 'absolute top-2 left-2' />
-        <input className='h-[35px] rounded-2xl px-8 border-[2px] focus:outline-blue-300 ' type="search" placeholder='Search Products' />
+        <input onChange={handleInput} className='h-[35px] rounded-2xl px-8 border-[2px] focus:outline-blue-300 ' type="search" placeholder='Search Products' />
+         <List input={inputText} />
       </div>
       <div className='flex items-center gap-8'>
         <div className='relative flex items-center gap-2'>

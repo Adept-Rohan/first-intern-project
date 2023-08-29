@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 
 const Cart : FunctionComponent = () =>{
     const {heading} = card()
-    const data = useSelector((state:any)=> state.cart)
-    console.log(data)
+    // const data = useSelector((state:any)=> state.cart.cartProduct)
+    // console.log(data)
     
     return(
 <>
