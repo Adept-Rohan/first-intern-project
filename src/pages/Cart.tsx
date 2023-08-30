@@ -24,12 +24,12 @@ const Cart : FunctionComponent = () =>{
               <span className='font-titleFont font-bold text-lg'>Koteshwor-32 , Kathmandu</span>
             </p>
             <p className='flex justify-between item-center mt-6 text-base'>
-              Total Price {' '} <span className='font-titleFont font-bold text-lg'>
-                $Price
+              Total Price <span className='font-titleFont font-bold text-lg'>
+                $ {data.price}
               </span>
             </p>
           </div>
-          <button className='w-[350px] mt-4 h-[32px] bg-black text-white'>Proceed To Checkout</button>
+          <button className='w-[340px] mt-4 h-[32px] bg-black hover:bg-slate-700 hover:text-slate-950 text-white'>Proceed To Checkout</button>
         </div>
       </div>
 

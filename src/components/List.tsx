@@ -40,9 +40,7 @@ const List= ({input}:{input:string}):ReactNode=>{
 
         console.log(filterData)
 
-        const handelNavigation = () =>{
-               navigate('/product/:id')
-        }
+       
 
     return(
       <>
@@ -53,7 +51,7 @@ const List= ({input}:{input:string}):ReactNode=>{
                 inputData !== '' && (
 
                     filterData?.map((item:Item) => (
-                        <div onClick={handelNavigation} className="bg-gray-50 w-[450px] h-auto flex items-center justify-between hover:bg-slate-100 transition-all duration-100 ease-in-out cursor-pointer" >
+                        <div className="bg-gray-50 w-[450px] z-50 h-auto flex items-center justify-between hover:bg-slate-100 transition-all duration-100 ease-in-out cursor-pointer" >
 <li className={link()} key={item.id}>{item.title}</li>
 <img className="w-8 h-6 rounded-3xl object-contain" src={item.image} alt="" />
                         </div>

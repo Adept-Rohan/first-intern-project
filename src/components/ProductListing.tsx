@@ -7,12 +7,16 @@ import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 
+type RoutingString = {
+    myId : string
+}
+
 const ProductListing  = ({item}:{item:any})=>{
 
    const navigate = useNavigate()
    const dispatch = useDispatch()
 
-   const myId = item.title
+   const myId :RoutingString = item.title
     const idString = () => {
         return String(myId).toLowerCase().split(" ").join('')
     }
