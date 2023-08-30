@@ -1,6 +1,6 @@
 import {FunctionComponent } from 'react'
 import {card} from '../tailwindvariant/Tailwindvariant'
-import data from '../testomonial.json'
+import data from '../data/testomonial.json'
 
 const UserTestimony : FunctionComponent = ()=>{
     const {heading} = card()

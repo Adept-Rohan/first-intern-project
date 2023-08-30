@@ -1,5 +1,5 @@
 import  { FunctionComponent } from "react"; // Import React
-import data from '../db.json';
+import data from '../data/db.json';
 import {motion} from 'framer-motion'
 import {card} from '../tailwindvariant/Tailwindvariant'
 
@@ -12,7 +12,7 @@ const Category: FunctionComponent = () => {
                 <h1 className={heading()}>Shop Our Top Pick Category</h1>
             </div>
             <div className="flex w-full">
-                {data.map((category) => (
+                {data?.map((category) => (
                     <div className="relative mx-[25px] py-10 flex gap-10" key={category.id}>
                         <div  className="w-[194px] h-[250px] cursor-pointer overflow-hidden">
                             <motion.img whileTap={{ scale: 0.8 }} className="w-full h-full object-cover group-hover:scale-110 duration-500" src={category.image} alt={category.text} />

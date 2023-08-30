@@ -8,6 +8,15 @@ const Cart : FunctionComponent = () =>{
      const data = useSelector((state:any)=> state.cart.cartData)
      console.log(data)
     
+    const getTotal = ()=>{
+        let totalPrice = 0
+        data.forEach((item:any) =>{
+            totalPrice+= item.price * item.quantity
+        })
+        return totalPrice
+    }
+
+
     return(
 <>
 <div className="text-center mt-4">
@@ -20,12 +29,12 @@ const Cart : FunctionComponent = () =>{
             <h2 className='text-2xl font-medium'>Cart Total</h2>
             
             <p className='flex items-center gap-4 text-base'>
-              Shippng {" "}
+              Shippng
               <span className='font-titleFont font-bold text-lg'>Koteshwor-32 , Kathmandu</span>
             </p>
             <p className='flex justify-between item-center mt-6 text-base'>
               Total Price <span className='font-titleFont font-bold text-lg'>
-                $ {data.price}
+                $ {getTotal()}
               </span>
             </p>
           </div>

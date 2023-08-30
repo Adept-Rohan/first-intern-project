@@ -44,6 +44,7 @@ const ProductListing  = ({item}:{item:any})=>{
                                 <div className='flex justify-between items-center'>
                                 <div>
                             <h2 className='font-titleFont font-bold text-base'>{item.title.substring(0, 12)}</h2>
+                            <p className='text-base'>{item.category}</p>
                         </div>
                         <div className='flex gap-2 justify-end relative overflow-hidden w-28 text-sm'>
                             <div className='flex gap-2 z-30 transform  group-hover:translate-x-24 transition-transform duration-500'>

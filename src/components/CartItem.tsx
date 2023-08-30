@@ -1,11 +1,11 @@
-import { useState } from "react"
+
 import { useSelector } from "react-redux"
 import { MdOutlineClose } from "react-icons/md"
-import {removeItem} from '../redux/CartReducer'
+import {removeItem , incrementQuantity , decrementQuantity} from '../redux/CartReducer'
 import { useDispatch } from "react-redux"
 
 const CartItem = () =>{
-    const [baseQty, setBaseQty] = useState(1)
+    
     const productData = useSelector((state:any) => state.cart.cartData)
     const dispatch = useDispatch()
     return (
@@ -31,9 +31,9 @@ const CartItem = () =>{
                                 <div className='w-52 flex items-center justify-between text-gray-500 gap-4 border p-3'>
                                     <p className='text-sm'>Quantity</p>
                                     <div className='flex items-center gap-4 text-sm font-semibold'>
-                                        <button onClick={() => setBaseQty((baseQty) => baseQty === 1 ? baseQty = 1 : baseQty - 1)} className='border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black'>-</button>
-                                        <span>{baseQty}</span>
-                                        <button onClick={() => setBaseQty(baseQty + 1)} className='border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black'>+</button>
+                                        <button onClick={() => dispatch(decrementQuantity(item.id))} className='border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black'>-</button>
+                                        <span>{item.quantity}</span>
+                                        <button onClick={() => dispatch(incrementQuantity(item.id))} className='border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black'>+</button>
                                     </div>
                                 </div>
                             </div>
