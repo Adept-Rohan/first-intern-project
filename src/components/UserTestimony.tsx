@@ -14,7 +14,7 @@ const UserTestimony : FunctionComponent = ()=>{
         </div >
         <div className='grid mb-8 lg:mb-12 lg:grid-cols-2 mt-6 '>
         {
-            data.map((testomony)=>{
+            data.map((testomony:any)=>{
                 return(
                     <>
                     <div key={testomony.id}  >
@@ -30,10 +30,8 @@ const UserTestimony : FunctionComponent = ()=>{
                   </div>
               </figcaption>    
           </figure>
-          </div>
-          
-                      
-                    </>
+          </div> 
+   </>
                 )
             })
         }

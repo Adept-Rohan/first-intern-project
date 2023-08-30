@@ -5,12 +5,14 @@ const userInfo = fetchInfo()
 
 
 interface User {
-    displayname: string;
-    email : string;
-    password : string
-    
+    email: string | null
     
 }
+
+
+
+
+
 
 interface UserState {
     user: User | null;

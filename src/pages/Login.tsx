@@ -16,6 +16,11 @@ interface FormData {
     password: string;
 }
 
+export interface UserDetails {
+    displayName: string | null;
+    email: string | null;
+  }
+
 
 
 const Login: FunctionComponent = () => {

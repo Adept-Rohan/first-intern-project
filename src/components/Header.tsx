@@ -9,8 +9,11 @@ import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import List from './List';
 
-type UserProps ={
-  user : any;
+
+
+type RegisterData = {
+  email : string
+  
 }
 
 const Header: FunctionComponent = () => {
@@ -20,7 +23,7 @@ const Header: FunctionComponent = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const data  = useSelector<UserProps>((user) => user.user.user)
+  const data  = useSelector<RegisterData>((user:any) => user.user.user)
   console.log(data)
 
   const [menu , setMenu] = useState(false)
@@ -38,7 +41,7 @@ const Header: FunctionComponent = () => {
     setMenu(!menu)
     localStorage.clear()
     navigate('/login')
-    dispatch(removeDetail(null))
+    dispatch(removeDetail())
 
   }
 
@@ -59,7 +62,8 @@ const Header: FunctionComponent = () => {
       </div>
       <div className='flex items-center gap-8'>
      <Link to='/'><p>Home</p></Link>   
-      <Link to='/category'><p>Category</p></Link>  
+      <Link to='/category'><p>Category</p>
+      </Link>  
       </div>
       <div className='relative'>
         <AiOutlineSearch className = 'absolute top-2 left-2' />

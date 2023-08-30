@@ -1,36 +1,33 @@
-
-import { AiOutlineArrowRight } from 'react-icons/ai'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { addToCart } from '@/redux/CartReducer'
-import {toast, ToastContainer} from 'react-toastify'
+import {addToCart} from '../redux/CartReducer' 
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { ToastContainer , toast  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 type RoutingString = {
-    myId : string
-}
+  myId: string;
+};
 
-const ProductListing  = ({item}:{item:any})=>{
+const ProductListing = ({ item }: { item: any }) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-   const navigate = useNavigate()
-   const dispatch = useDispatch()
+  const myId: RoutingString = { myId: item.title };
 
-   const myId :RoutingString = item.title
-    const idString = () => {
-        return String(myId).toLowerCase().split(" ").join('')
-    }
+  const idString = (input: string) => {
+    return input.toLowerCase().split(" ").join("");
+  };
 
-    const rootId = idString(myId)
+  const rootId = idString(myId.myId);
 
-    function handleClick() {
-        navigate(`/product/${rootId}`, {
-            state: {
-                product: item
-
-            }
-        })
-    }
+  function handleClick() {
+    navigate(`/product/${rootId}`, {
+      state: {
+        product: item,
+      },
+    });
+  }
 
 
     return (

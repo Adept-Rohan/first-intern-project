@@ -6,19 +6,29 @@ import { addToCart } from "@/redux/CartReducer"
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-// type myDetails = {
-//   id: number
-//   image: string 
-//   title : string 
-//   description : string 
-//   price : number 
-// }
+type myDetails = {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+  price: number;
+  category: string; // Make sure to add 'category' in the type definition
+};
 
 const SingleProduct : FunctionComponent = ()=>{
     
     const dispatch = useDispatch()
     const location = useLocation()
-    const [details , setDetails] = useState({})
+    const [details , setDetails] = useState<myDetails>(
+      {
+        id: 0,
+        image: "",
+        title: "",
+        description: "",
+        price: 0,
+        category: ""
+      }
+    )
 
     useEffect(()=>{
         setDetails(location.state.product)
