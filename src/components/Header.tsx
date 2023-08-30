@@ -17,6 +17,7 @@ type UserProps ={
 
 
 
+
 const Header: FunctionComponent = () => {
   
   const {link} = card()
@@ -24,7 +25,7 @@ const Header: FunctionComponent = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const data = useSelector<UserProps>((user) => user.user.user)
+  const data  = useSelector<UserProps>((user) => user.user.user)
   console.log(data)
 
   const [menu , setMenu] = useState(false)

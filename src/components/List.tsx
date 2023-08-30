@@ -1,7 +1,7 @@
 import  { ReactNode } from "react";
 import { queryHook } from "@/api/queryHook";
 import { card } from "@/tailwindvariant/Tailwindvariant";
-import { useNavigate } from "react-router-dom";
+
 
 interface FilterData {
     id : number
@@ -19,7 +19,7 @@ const List= ({input}:{input:string}):ReactNode=>{
    
     const {link} = card()
 
-    const navigate = useNavigate()
+    
 
     const inputData = input
     console.log(inputData)

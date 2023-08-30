@@ -10,7 +10,10 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            const itemInCart = state.cartData.find((item:any) => item.id === action.payload.id);
+            const itemInCart = state.cartData.find((item:any) => item.id === action.payload.title);
+            // console.log(itemInCart)
+            // console.log(action.payload.id)
+            // console.log(action.payload)
             if (itemInCart) {
               itemInCart.quantity++;
             } else {
@@ -32,7 +35,7 @@ export const cartSlice = createSlice({
             } else {
               item.quantity--;
             }
-          },
+          }
     }
 })
 

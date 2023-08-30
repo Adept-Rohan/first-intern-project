@@ -6,13 +6,13 @@ import { addToCart } from "@/redux/CartReducer"
 import {toast, ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-type myDetails = {
-  id: number
-  image: string 
-  title : string 
-  description : string 
-  price : number 
-}
+// type myDetails = {
+//   id: number
+//   image: string 
+//   title : string 
+//   description : string 
+//   price : number 
+// }
 
 const SingleProduct : FunctionComponent = ()=>{
     
