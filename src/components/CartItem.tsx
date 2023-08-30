@@ -3,8 +3,11 @@ import { useSelector } from "react-redux"
 import { MdOutlineClose } from "react-icons/md"
 import {removeItem , incrementQuantity , decrementQuantity} from '../redux/CartReducer'
 import { useDispatch } from "react-redux"
+import { card } from "@/tailwindvariant/Tailwindvariant"
 
 const CartItem = () =>{
+
+    const {button , text} = card()
     
     const productData = useSelector((state:any) => state.cart.cartData)
     const dispatch = useDispatch()
@@ -27,11 +30,11 @@ const CartItem = () =>{
                             <p className='w-10'> ${item.price}</p>
                             <div>
                                 <div className='w-52 flex items-center justify-between text-gray-500 gap-4 border p-3'>
-                                    <p className='text-sm'>Quantity</p>
+                                    <p className={text()}>Quantity</p>
                                     <div className='flex items-center gap-4 text-sm font-semibold'>
-                                        <button onClick={() => dispatch(decrementQuantity(item.id))} className='border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black'>-</button>
+                                        <button onClick={() => dispatch(decrementQuantity(item.id))} className={button()}>-</button>
                                         <span>{item.quantity}</span>
-                                        <button onClick={() => dispatch(incrementQuantity(item.id))} className='border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black'>+</button>
+                                    <button onClick={() => dispatch(incrementQuantity(item.id))} className={button()}>+</button>
                                     </div>
                                 </div>
                             </div>

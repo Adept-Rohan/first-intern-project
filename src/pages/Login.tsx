@@ -16,9 +16,9 @@ interface FormData {
     password: string;
 }
 
-const Login: FunctionComponent = () => {
 
-    
+
+const Login: FunctionComponent = () => {
 
     const firebaseAuth = getAuth(app);
 
@@ -77,12 +77,12 @@ const Login: FunctionComponent = () => {
                                     <form onSubmit={handleSubmit(handleData)} className="space-y-4 md:space-y-6">
                                         <div>
                                             <label htmlFor="email" className={label()}>Your email</label>
-                                            <input {...register("email")} type="email" name="email" id="email" className={input()} placeholder="name@company.com" />
+                                            <input {...register("email")} type="email" name="email"  className={input()} placeholder="name@company.com" />
                                             <p className={error()}>{errors?.email?.message}</p>
                                         </div>
                                         <div>
                                             <label htmlFor="password" className={label()}>Password</label>
-                                            <input {...register("password")} type="password" name="password" id="password" placeholder="••••••••" className={input()} />
+                                            <input {...register("password")} type="password" name="password" placeholder="••••••••" className={input()} />
                                             <p className={error()}>{errors?.password?.message}</p>
                                         </div>
                                         <button type="submit"  className={search()}>Sign Up </button>

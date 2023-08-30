@@ -14,6 +14,14 @@ export const card = tv({
 
         link : "px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base",
 
-        error: 'text-sm text-red-600'
+        error: 'text-sm text-red-600',
+
+        button : 'border h-5 font-normal text-lg flex items-center justify-center px-2 hover:bg-gray-700 hover:text-white cursor-pointer duration-300 active:bg-black',
+
+        footer_par: 'cursor-pointer hover:text-gray-500',
+        
+        footer_heading : 'mb-5 font-bodyFont',
+
+      
     }
 })
