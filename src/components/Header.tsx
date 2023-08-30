@@ -9,14 +9,9 @@ import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import List from './List';
 
-
 type UserProps ={
   user : any;
 }
-
-
-
-
 
 const Header: FunctionComponent = () => {
   
@@ -64,7 +59,7 @@ const Header: FunctionComponent = () => {
       </div>
       <div className='flex items-center gap-8'>
      <Link to='/'><p>Home</p></Link>   
-        <p>Category</p>
+      <Link to='/category'><p>Category</p></Link>  
       </div>
       <div className='relative'>
         <AiOutlineSearch className = 'absolute top-2 left-2' />

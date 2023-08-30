@@ -10,6 +10,7 @@ import {QueryClient , QueryClientProvider} from '@tanstack/react-query'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import Footer from './components/Footer'
 import SingleProduct from './components/SingleProduct'
+import CategoryFilter from './pages/CategoryFilter'
 
 const Layout = () =>{
   return (
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path:'/cart',
         element: <Cart/>
+      },
+      {
+        path: '/category',
+        element : <CategoryFilter/>
       }
     ]
   }
