@@ -23,7 +23,7 @@ const Header: FunctionComponent = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const data  = useSelector<RegisterData>((user:any) => user.user.user)
+  const data :RegisterData  = useSelector((user:any) => user.user.user)
   console.log(data)
 
   const [menu , setMenu] = useState(false)
