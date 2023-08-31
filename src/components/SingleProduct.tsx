@@ -12,7 +12,7 @@ type myDetails = {
   title: string;
   description: string;
   price: number;
-  category: string; // Make sure to add 'category' in the type definition
+  category: string; 
 };
 
 const SingleProduct : FunctionComponent = ()=>{
