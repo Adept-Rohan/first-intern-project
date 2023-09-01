@@ -11,7 +11,7 @@ const CategoryList : FC = ({ filterItem, setItem, menuItems })=>{
 
     return (
         <>
-        <div >
+        <div className="w-1/4" >
             <h1 className={text()}>Filter By Category</h1>
             <ul className="flex flex-col gap-5 mt-6">
             {menuItems.map((Val:any, id:number) => {

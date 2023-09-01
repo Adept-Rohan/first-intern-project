@@ -29,7 +29,7 @@ const CategoryFilter : FC = ()=>{
           <div className="text-center mt-4">
             <h1 className={heading()}>This is Category Page</h1>
           </div>
-          <div className="flex justify-between px-8">
+          <div className="flex w-full justify-between px-8">
                 <CategoryList filterItem={filterItem}
             setItem={setItem}
             menuItems={menuItems} />

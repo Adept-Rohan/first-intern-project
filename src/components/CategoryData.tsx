@@ -11,7 +11,7 @@ const CategoryData : FC = ({item})=>{
 
     return (
         <>
-       <div>
+       <div className="w-3/4 grid grid-cols-2 px-4 gap-4">
           {
             item?.map((product:any) =>{
                 return (
@@ -25,7 +25,7 @@ const CategoryData : FC = ({item})=>{
                                 <div className='w-full border-[1px] cursor-pointer px-2 py-4'>
                                 <div className='flex justify-between items-center'>
                                 <div>
-                            <h2 className='font-titleFont font-bold text-base'>{product.title}</h2>
+                            <h2 className='font-titleFont font-bold text-base'>{product.title.substring(0,10)}</h2>
                             <p className='text-base'>{product.category}</p>
                         </div>
                         <div className='flex gap-2 justify-end relative overflow-hidden w-28 text-sm'>
