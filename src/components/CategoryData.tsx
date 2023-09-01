@@ -1,14 +1,22 @@
-import { FC } from "react";
+
 import { useDispatch } from "react-redux";
 import { ToastContainer , toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { addToCart } from "@/redux/CartReducer";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-const CategoryData : FC = ({item})=>{
+// type RoutingString = {
+//     myId: string;
+//   };
+
+const CategoryData  = ({ item }: { item: any })=>{
    
     const dispatch = useDispatch()
+    console.log(item)
 
+    // const myId: RoutingString = { myId: item.title };
+    // console.log(myId)
+    
     return (
         <>
        <div className="w-3/4 grid grid-cols-2 px-4 gap-4">
@@ -33,12 +41,12 @@ const CategoryData : FC = ({item})=>{
                                 <p className='font-semibold'>$ {product.price}</p>
                             </div>
                             <p onClick={() => dispatch(addToCart({
-                                id: item.id,
-                                title: item.title,
-                                image: item.image,
-                                price: item.price,
+                                id: product.id,
+                                title: product.title,
+                                image: product.image,
+                                price: product.price,
                                 quantity: 1,
-                                description: item.description
+                                description: product.description
                             })) && toast.success('Added To The Cart',{
                                 position : 'top-left',
                                 autoClose : 1000,

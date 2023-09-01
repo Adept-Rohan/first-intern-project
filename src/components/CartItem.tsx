@@ -24,7 +24,7 @@ const CartItem = () =>{
                         <div key={item?.id} className='flex items-center justify-between gap-6 mt-6'>
                             <div className='flex items-center gap-2'>
                                 <MdOutlineClose onClick={()=> dispatch(removeItem(item.id))}   className='text-xl text-gray-600 hover:text-red-600 cursor-pointer duration-300' />
-                                <img className='w-32 h-32 object-cover' src={item.image} alt="Product Image" />
+                                <img className='w-32 h-32 object-contain' src={item.image} alt="Product Image" />
                             </div>
                             <h2 className='w-52'>{item.title}</h2>
                             <p className='w-10'> ${item.price}</p>

@@ -4,6 +4,8 @@ import CategoryList from "@/components/CategoryList";
 import CategoryData from "@/components/CategoryData";
 import { queryHook } from "@/api/queryHook";
 
+
+
 const CategoryFilter : FC = ()=>{
   
   const data = queryHook()
@@ -15,7 +17,7 @@ const CategoryFilter : FC = ()=>{
 
   const menuItems = [...new Set(data?.data?.map((pro:any) => pro.category))];
 
-  const filterItem = (curcat:string) => {
+  const filterItem  = (curcat:any) => {
     const newItem = data?.data?.filter((newVal:any) => {
       return newVal.category === curcat;
     });
@@ -29,7 +31,7 @@ const CategoryFilter : FC = ()=>{
           <div className="text-center mt-4">
             <h1 className={heading()}>This is Category Page</h1>
           </div>
-          <div className="flex w-full justify-between px-8">
+          <div className="flex w-full justify-between px-8 gap-2">
                 <CategoryList filterItem={filterItem}
             setItem={setItem}
             menuItems={menuItems} />

@@ -43,7 +43,7 @@ const SingleProduct : FunctionComponent = ()=>{
       <div>
         <div className=' mx-[5%] my-10 flex gap-10'>
           <div className='w-2/5 relative'>
-            <img className='w-full h-[550px] object-cover' src={details.image} alt="Product Image" />
+            <img className='w-full h-[550px] object-contain' src={details.image} alt="Product Image" />
           </div>
           <div className='w-3/5 flex flex-col justify-center gap-12'>
             <div>

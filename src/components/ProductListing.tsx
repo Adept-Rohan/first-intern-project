@@ -12,6 +12,7 @@ type RoutingString = {
 const ProductListing = ({ item }: { item: any }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  console.log(item)
 
   const myId: RoutingString = { myId: item.title };
 

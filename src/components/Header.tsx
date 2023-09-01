@@ -8,7 +8,7 @@ import {removeDetail} from '../redux/UserReducer'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import List from './List';
-
+import { queryHook } from '@/api/queryHook';
 
 
 type RegisterData = {
@@ -22,6 +22,10 @@ const Header: FunctionComponent = () => {
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const apiData = queryHook()
+
+  console.log(apiData?.data?.map((product:any)=> product))
+  
 
   const data :RegisterData  = useSelector((user:any) => user.user.user)
   console.log(data)
@@ -68,7 +72,15 @@ const Header: FunctionComponent = () => {
       <div className='relative'>
         <AiOutlineSearch className = 'absolute top-2 left-2' />
         <input onChange={handleInput} className='h-[35px] rounded-2xl px-8 border-[2px] focus:outline-blue-300 ' type="search" placeholder='Search Products' />
-         <List input={inputText} />
+       {
+          apiData?.data?.map((product:any)=><List input={inputText} item={product} />)  
+
+       }
+             
+              
+       
+
+         
       </div>
       <div className='flex items-center gap-8'>
         <div className='relative flex items-center gap-2'>
