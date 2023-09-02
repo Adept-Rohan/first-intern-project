@@ -16,12 +16,6 @@ interface FormData {
     password: string;
 }
 
-export interface UserDetails {
-    displayName: string | null;
-    email: string | null;
-  }
-
-
 
 const Login: FunctionComponent = () => {
 
@@ -52,7 +46,7 @@ const Login: FunctionComponent = () => {
             .then((UserCredential) => {
                 console.log(UserCredential);
                 localStorage.setItem('user' , JSON.stringify(UserCredential.user))
-                 dispatch(setDetail({ displayname: UserCredential.user.displayName , email: UserCredential.user.email }));
+                 dispatch(setDetail( {email: UserCredential.user.email} ));
 
                
                 

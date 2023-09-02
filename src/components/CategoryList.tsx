@@ -2,8 +2,15 @@ import { FC } from "react";
 import { card } from "@/tailwindvariant/Tailwindvariant";
 import { queryHook } from "@/api/queryHook";
 
+interface Props {
+  filterItem: (Val: any) => any,
+  setItem: React.Dispatch<any>,
+ menuItems: any 
 
-const CategoryList : FC = ({ filterItem, setItem, menuItems })=>{
+}
+
+
+const CategoryList : FC<Props> = ({ filterItem, setItem, menuItems })=>{
 
    const data = queryHook()
 

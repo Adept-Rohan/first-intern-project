@@ -1,4 +1,4 @@
-import { FC, useState  } from "react";
+import { FC , useState } from "react";
 import { card } from "@/tailwindvariant/Tailwindvariant";
 import CategoryList from "@/components/CategoryList";
 import CategoryData from "@/components/CategoryData";
@@ -13,6 +13,8 @@ const CategoryFilter : FC = ()=>{
   const {heading} = card()
 
   const [item , setItem] = useState(data.data)
+
+  console.log(item)
 
 
   const menuItems = [...new Set(data?.data?.map((pro:any) => pro.category))];
@@ -35,7 +37,10 @@ const CategoryFilter : FC = ()=>{
                 <CategoryList filterItem={filterItem}
             setItem={setItem}
             menuItems={menuItems} />
-                <CategoryData item={item}/>
+            
+             <CategoryData item={item} /> 
+            
+                
           </div>
         </>
     )

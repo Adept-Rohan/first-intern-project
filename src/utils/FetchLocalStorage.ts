@@ -9,3 +9,14 @@ export const fetchInfo = () => {
      return null;
      }
 };
+
+
+export const getLocalStorage = () => {
+    const userData = localStorage.getItem('cartdata')
+    if (userData) {
+      return JSON.parse(userData)
+    } else {
+      return []
+    }
+  }
+  

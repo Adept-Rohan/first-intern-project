@@ -64,7 +64,7 @@ const ProductListing = ({ item }: { item: any }) => {
                                 draggable: true,
                                 progress: undefined,
                                 theme:'colored'
-                              }) } className='absolute z-20 w-[300px] text-gray-500 hover:text-gray-900 flex items-center gap-1 top-0 transform-translate-x-40  group-hover:translate-x-48 transition-transform duration-500 cursor-pointer'>add to Cart <ToastContainer/><span><AiOutlineArrowRight /></span></p>
+                              }) && localStorage.setItem('cartItem', JSON.stringify(item)) } className='absolute z-20 w-[300px] text-gray-500 hover:text-gray-900 flex items-center gap-1 top-0 transform-translate-x-40  group-hover:translate-x-48 transition-transform duration-500 cursor-pointer'>add to Cart <ToastContainer/><span><AiOutlineArrowRight /></span></p>
                                     </div>
                                 </div>
                                 </div>

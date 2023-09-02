@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getLocalStorage } from "@/utils/FetchLocalStorage";
 
+
+const myCart = getLocalStorage()
+console.log(myCart)
 
 const initialState : any = {
-    cartData: [],
+    cartData: myCart,
 }
+
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -11,10 +16,12 @@ export const cartSlice = createSlice({
     reducers: {
         addToCart: (state, action) => {
             const itemInCart = state.cartData.find((item:any) => item.id === action.payload.title);
+            
             if (itemInCart) {
               itemInCart.quantity++;
             } else {
               state.cartData.push({ ...action.payload, quantity: 1 });
+              
             }
           },
           removeItem: (state, action) => {

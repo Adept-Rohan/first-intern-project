@@ -12,5 +12,5 @@ export const queryHook = () => {
                 console.log(err);
                 throw err;
             });
-    });
+        });
 };
