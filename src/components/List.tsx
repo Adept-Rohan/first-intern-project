@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { card } from "@/tailwindvariant/Tailwindvariant";
 import { queryHook } from "@/api/queryHook";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface FilterData {
   id: number;
@@ -15,25 +15,30 @@ interface ItemFiltered {
   image: string;
 }
 
-interface Items {
+export interface Items {
   id: number;
   title: string;
   price: number;
   description: string;
+  image: string;
+  category: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
 }
 
 interface Props {
   input: string;
-  item: any;
+  item: Items;
 }
 
 const List: React.FC<Props> = ({ input, item }) => {
   const { link } = card();
-
   const [filtreredData, setFileredData] = useState<ItemFiltered[] | null>(null);
-  // const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const inputData = input;
+  let inputData = input;
   console.log(inputData);
 
   console.log(item);
@@ -58,9 +63,12 @@ const List: React.FC<Props> = ({ input, item }) => {
       }
     });
 
-    console.log("FILTERD ", filteredValue);
     setFileredData(filteredValue);
   }, [inputData]);
+
+  const handleNavigate = (id: number) => {
+    navigate(`/product/${id}`);
+  };
 
   return (
     <>
@@ -69,7 +77,10 @@ const List: React.FC<Props> = ({ input, item }) => {
           {inputData !== "" &&
             filtreredData &&
             filtreredData?.map((item: ItemFiltered) => (
-              <div className="bg-gray-50 w-[450px] z-50 h-auto flex items-center justify-between hover:bg-slate-100 transition-all duration-100 ease-in-out cursor-pointer">
+              <div
+                className="bg-gray-50 w-[450px] z-50 h-auto flex items-center justify-between hover:bg-slate-100 transition-all duration-100 ease-in-out cursor-pointer"
+                onClick={() => handleNavigate(item.id)}
+              >
                 <li className={link()} key={item.id}>
                   {item.title}
                 </li>
