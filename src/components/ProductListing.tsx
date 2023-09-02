@@ -6,10 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Items } from "./List";
 
-type RoutingString = {
-  myId: string;
-};
-
 const ProductListing = ({ item }: { item: Items }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
