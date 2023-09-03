@@ -17,6 +17,8 @@ import Footer from "./components/Footer";
 import SingleProduct from "./components/SingleProduct";
 import CategoryFilter from "./pages/CategoryFilter";
 import Payment from "./pages/Payment";
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
 
 const Layout = () => {
   return (
@@ -69,15 +71,17 @@ const router = createBrowserRouter([
 
 function App() {
   const queryClient = new QueryClient();
-
+  let persist = persistStore(store);
   return (
     <>
-      <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>
-        <ReactQueryDevtools />
-      </QueryClientProvider>
+      <PersistGate persistor={persist}>
+        <QueryClientProvider client={queryClient}>
+          <Provider store={store}>
+            <RouterProvider router={router} />
+          </Provider>
+          <ReactQueryDevtools />
+        </QueryClientProvider>
+      </PersistGate>
     </>
   );
 }

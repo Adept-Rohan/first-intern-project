@@ -1,5 +1,4 @@
 import { FunctionComponent, useEffect, useState } from "react";
-
 import { MdOutlineStar } from "react-icons/md";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";

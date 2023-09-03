@@ -1,40 +1,33 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import {fetchInfo} from '../utils/FetchLocalStorage'
+import { fetchInfo } from "../utils/FetchLocalStorage";
 
-const userInfo = fetchInfo()
-
+const userInfo = fetchInfo();
 
 interface User {
-    email: string | null
-    
+  email: string | null;
 }
 
-
-
-
-
-
 interface UserState {
-    user: User | null;
+  user: User | null;
 }
 
 const initialState: UserState = {
-    user: userInfo,
+  user: userInfo,
 };
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState,
-    reducers: {
-        setDetail: (state, action: PayloadAction<User>) => {
-            const user = action.payload;
-            state.user = user;
-            console.log(user);
-        },
-        removeDetail: (state) => {
-            state.user = null;
-        },
+  name: "user",
+  initialState,
+  reducers: {
+    setDetail: (state, action: PayloadAction<User>) => {
+      const user = action.payload;
+      state.user = user;
+      console.log(user);
     },
+    removeDetail: (state) => {
+      state.user = null;
+    },
+  },
 });
 
 export const { setDetail, removeDetail } = userSlice.actions;

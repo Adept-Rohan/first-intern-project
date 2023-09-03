@@ -43,17 +43,8 @@ const List: React.FC<Props> = ({ input, item }) => {
 
   console.log(item);
 
-  // const idString = (input: string) => {
-  //   return input.toLowerCase().split(" ").join("");
-  // };
-
-  // const rootId = idString(myId.myId);
-
-  // function handleClick() {
-  //   navigate(`/product/${rootId}`);
-  // }
-
   const data = queryHook();
+
   useEffect(() => {
     const filteredValue = data?.data?.filter((el: FilterData) => {
       if (inputData === "") {
@@ -68,6 +59,7 @@ const List: React.FC<Props> = ({ input, item }) => {
 
   const handleNavigate = (id: number) => {
     navigate(`/product/${id}`);
+    inputData = "";
   };
 
   return (
