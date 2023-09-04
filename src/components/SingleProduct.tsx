@@ -23,6 +23,8 @@ const SingleProduct: FunctionComponent = () => {
 
   const [details, setDetails] = useState<myDetails | null>(null);
 
+  const [disabled, setDisabled] = useState(false);
+
   useEffect(() => {
     (async () => {
       try {
@@ -77,33 +79,66 @@ const SingleProduct: FunctionComponent = () => {
                 {details.description}
               </p>
               <div className="flex gap-4">
-                <button
-                  onClick={() =>
-                    dispatch(
-                      addToCart({
-                        id: details.id,
-                        title: details.title,
-                        image: details.image,
-                        price: details.price,
-                        quantity: 1,
-                        description: details.description,
-                      })
-                    ) &&
-                    toast.success("Added To The Cart", {
-                      position: "top-left",
-                      autoClose: 1000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                      theme: "colored",
-                    })
-                  }
-                  className="bg-black text-white py-3 px-6 active:bg-gray-800 "
-                >
-                  add to Cart
-                </button>
+                {disabled ? (
+                  <button
+                    onClick={() =>
+                      dispatch(
+                        addToCart({
+                          id: details.id,
+                          title: details.title,
+                          image: details.image,
+                          price: details.price,
+                          quantity: 1,
+                          description: details.description,
+                        })
+                      ) &&
+                      toast.success("Added To The Cart", {
+                        position: "top-left",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                      }) &&
+                      setDisabled(true)
+                    }
+                    className="bg-slate-500 text-white py-3 px-6 active:bg-gray-800 "
+                    disabled={disabled}
+                  >
+                    added to Cart
+                  </button>
+                ) : (
+                  <button
+                    onClick={() =>
+                      dispatch(
+                        addToCart({
+                          id: details.id,
+                          title: details.title,
+                          image: details.image,
+                          price: details.price,
+                          quantity: 1,
+                          description: details.description,
+                        })
+                      ) &&
+                      toast.success("Added To The Cart", {
+                        position: "top-left",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                      }) &&
+                      setDisabled(true)
+                    }
+                    className="bg-black text-white py-3 px-6 active:bg-gray-800 "
+                  >
+                    add to Cart
+                  </button>
+                )}
               </div>
               <p className="text-base text-gray-500">
                 Category :{" "}
