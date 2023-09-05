@@ -36,7 +36,7 @@ const SingleProduct: FunctionComponent = () => {
         console.log(e);
       }
     })();
-  }, []);
+  }, [id]);
 
   if (details === null) {
     return (
@@ -101,8 +101,7 @@ const SingleProduct: FunctionComponent = () => {
                         draggable: true,
                         progress: undefined,
                         theme: "colored",
-                      }) &&
-                      setDisabled(true)
+                      })
                     }
                     className="bg-slate-500 text-white py-3 px-6 active:bg-gray-800 "
                     disabled={disabled}

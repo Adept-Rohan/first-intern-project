@@ -5,17 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { addToCart } from "@/redux/CartReducer";
 import { AiOutlineArrowRight } from "react-icons/ai";
 
-// type RoutingString = {
-//     myId: string;
-//   };
-
 const CategoryData = ({ item }: { item: any }) => {
   const dispatch = useDispatch();
   console.log(item);
 
   const navigate = useNavigate();
-  // const myId: RoutingString = { myId: item.title };
-  // console.log(myId)
 
   const handleClick = (id: number) => {
     navigate(`/product/${id}`);

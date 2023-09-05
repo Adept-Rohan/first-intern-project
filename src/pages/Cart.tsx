@@ -24,7 +24,7 @@ const Cart: FunctionComponent = () => {
       </div>
       <div className="mx-[5%] py-20 flex">
         <CartItem />
-        <div className="w-1/3 bg-[#fafafa] py-6 px-4">
+        <div className="w-1/3 h-[300px] bg-[#fafafa] py-6 px-4">
           <div className="flex flex-col gap-6 border-b-[1px] pb-6 border-b-gray-400">
             <h2 className="text-2xl font-medium">Cart Total</h2>
 
