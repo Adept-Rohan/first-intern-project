@@ -63,7 +63,11 @@ const Payment: FC = () => {
                 onClick={() => setPopOpen(!popOpen)}
                 className="hover-underline text-blue-800 px-2"
               >
-                Edit
+                {addressData ? (
+                  <div>{addressData.address}</div>
+                ) : (
+                  <div>Edit</div>
+                )}
               </button>
               {popOpen ? (
                 <PopUp handleClick={() => setPopOpen(!popOpen)} />

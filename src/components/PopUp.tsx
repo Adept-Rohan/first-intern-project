@@ -45,7 +45,7 @@ const PopUp = (props: ButtonProps) => {
         <div className="z-100  absolute left-[30%] top-[30%] right-[40%] bottom-[30%] text-center m-auto bg-white rounded-2xl border-black">
           <h1
             className={text({
-              className: "pt-2",
+              className: "pt-6",
             })}
           >
             Please Enter Your Billing Address
