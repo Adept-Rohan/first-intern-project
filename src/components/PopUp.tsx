@@ -2,13 +2,42 @@ import { AiOutlineClose } from "react-icons/ai";
 import { card } from "@/tailwindvariant/Tailwindvariant";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useDispatch } from "react-redux";
+import { setAdress } from "@/redux/AdressReducer";
 
 type ButtonProps = {
   handleClick: () => void;
 };
 
+interface AdressData {
+  address: string;
+}
+
 const PopUp = (props: ButtonProps) => {
-  const { text } = card();
+  const { text, error } = card();
+
+  const schema = yup.object().shape({
+    address: yup.string().required(),
+  });
+
+  const dispatch = useDispatch();
+
+  const {
+    handleSubmit,
+    register,
+    reset,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
+  const handleData = (data: AdressData | null) => {
+    console.log("MY-ADRESS", data);
+    dispatch(setAdress(data));
+
+    reset();
+  };
 
   return (
     <>
@@ -27,18 +56,22 @@ const PopUp = (props: ButtonProps) => {
           >
             <AiOutlineClose />
           </button>
-          <div className="pt-6 ">
-            <TextField
-              id="outlined-basic"
-              label="Billing Address"
-              variant="outlined"
-            />
-          </div>
-          <div className="mt-6">
-            <Button type="submit" variant="outlined">
-              Submit
-            </Button>
-          </div>
+          <form onSubmit={handleSubmit(handleData)}>
+            <div className="pt-6 ">
+              <TextField
+                id="outlined-basic"
+                label="Billing Address"
+                variant="outlined"
+                {...register("address")}
+              />
+              <p className={error()}>{errors?.address?.message}</p>
+            </div>
+            <div className="mt-6">
+              <Button type="submit" variant="outlined">
+                Submit
+              </Button>
+            </div>
+          </form>
         </div>
       </div>
     </>

@@ -16,6 +16,12 @@ const Payment: FC = () => {
 
   const userData = useSelector((state: any) => state.user.user);
 
+  const email = userData.email;
+  const result = email.substring(0, email.indexOf("@"));
+
+  const addressData = useSelector((state: any) => state.address.address);
+  console.log("MyAd", addressData);
+
   // const navigate = useNavigate();
 
   const getTotal = () => {
@@ -48,7 +54,9 @@ const Payment: FC = () => {
       <div className="flex w-full gap-4">
         <div className="flex w-full flex-col">
           <div className="w-[70%] flex flex-col gap-4 mt-8 h-auto rounded-xl bg-[#F4F4F4] mx-10 p-4">
-            <p>Deliver To : </p>
+            <p className="flex items-center gap-4">
+              Deliver To : {result ? <p>{result}</p> : null}{" "}
+            </p>
             <p>
               Billing Address :{" "}
               <button
