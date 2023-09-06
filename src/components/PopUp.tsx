@@ -20,7 +20,7 @@ const PopUp = (props: ButtonProps) => {
   const { text, error } = card();
 
   const schema = yup.object().shape({
-    address: yup.string().required(),
+    address: yup.string().min(6).required(),
   });
 
   const dispatch = useDispatch();
@@ -35,7 +35,6 @@ const PopUp = (props: ButtonProps) => {
   const handleData = (data: AdressData | null) => {
     console.log("MY-ADRESS", data);
     dispatch(setAdress(data));
-
     reset();
   };
 
@@ -67,11 +66,7 @@ const PopUp = (props: ButtonProps) => {
               <p className={error()}>{errors?.address?.message}</p>
             </div>
             <div className="mt-6">
-              <Button
-                onClick={props.handleClick}
-                type="submit"
-                variant="outlined"
-              >
+              <Button type="submit" variant="outlined">
                 Submit
               </Button>
             </div>
