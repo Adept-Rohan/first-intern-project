@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Items } from "./List";
+import ReactLoading from "react-loading";
 
 type myDetails = {
   id: number;
@@ -41,7 +42,7 @@ const SingleProduct: FunctionComponent = () => {
   if (details === null) {
     return (
       <div className="h-[200px] flex items-center justify-center">
-        <h1>Loading...</h1>
+        <ReactLoading type="spokes" color="#0000FF" height={100} width={50} />
       </div>
     );
   }

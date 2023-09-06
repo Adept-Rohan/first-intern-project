@@ -81,7 +81,10 @@ const Payment: FC = () => {
               cartData?.map((product: any) => {
                 return (
                   <>
-                    <div className="flex items-center justify-between">
+                    <div
+                      key={product.id}
+                      className="flex items-center justify-between"
+                    >
                       <img className="w-4" src={product.image} alt="" />
                       <p className="flex gap-4">
                         {product.title.substring(0, 20)}
