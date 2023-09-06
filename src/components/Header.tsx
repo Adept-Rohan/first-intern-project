@@ -86,12 +86,13 @@ const Header: FunctionComponent = () => {
           <AiOutlineSearch className="absolute top-2 left-2" />
           <input
             onChange={handleInput}
+            value={inputText}
             className="h-[35px] rounded-2xl px-8 border-[2px] focus:outline-blue-300 "
             type="search"
             placeholder="Search Products"
           />
 
-          <List input={inputText} />
+          <List input={inputText} setInputData={setInputText} />
         </div>
         <div className="flex items-center gap-8">
           <div className="relative flex items-center gap-2">

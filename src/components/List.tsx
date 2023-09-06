@@ -30,10 +30,12 @@ export interface Items {
 
 interface Props {
   input: string;
+  setInputData: any;
 }
 
-const List: React.FC<Props> = ({ input }) => {
+const List: React.FC<Props> = ({ input, setInputData }) => {
   const { link } = card();
+
   const [filtreredData, setFileredData] = useState<ItemFiltered[] | null>(null);
   const navigate = useNavigate();
 
@@ -41,7 +43,7 @@ const List: React.FC<Props> = ({ input }) => {
 
   let inputData = input;
   console.log(inputData);
-
+  console.log("SET", setInputData);
   const data = queryHook();
 
   useEffect(() => {
@@ -58,6 +60,7 @@ const List: React.FC<Props> = ({ input }) => {
   }, [inputData]);
 
   const handleNavigate = (id: number) => {
+    setInputData("");
     navigate(`/product/${id}`);
     setSearchStatus(!searchStatus);
   };
@@ -72,7 +75,9 @@ const List: React.FC<Props> = ({ input }) => {
             filtreredData?.map((item: ItemFiltered) => (
               <div
                 className="bg-gray-50 w-[450px] z-50 h-auto flex items-center justify-between hover:bg-slate-100 transition-all duration-100 ease-in-out cursor-pointer"
-                onClick={() => handleNavigate(item.id)}
+                onClick={() => {
+                  handleNavigate(item.id);
+                }}
               >
                 <li className={link()} key={item.id}>
                   {item.title}

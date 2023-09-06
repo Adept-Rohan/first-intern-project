@@ -73,7 +73,10 @@ const Payment: FC = () => {
                 <PopUp handleClick={() => setPopOpen(!popOpen)} />
               ) : null}
             </p>
-            <p>Email Address: {userData.email} </p>
+            <p className="flex items-center gap-4">
+              Email Address:{" "}
+              {userData ? <div>{userData.email}</div> : <div></div>}{" "}
+            </p>
           </div>
           <div className="w-[70%] flex flex-col gap-4 mt-8 h-auto rounded-xl bg-[#F4F4F4] mx-10 p-4">
             <p>Your Items</p>
