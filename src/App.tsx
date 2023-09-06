@@ -19,6 +19,7 @@ import CategoryFilter from "./pages/CategoryFilter";
 import Payment from "./pages/Payment";
 import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
+import Dashboard from "./pages/Dashboard";
 
 const Layout = () => {
   return (
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "/payment",
         element: <Payment />,
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
       },
     ],
   },

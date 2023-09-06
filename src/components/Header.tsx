@@ -117,6 +117,13 @@ const Header: FunctionComponent = () => {
                     </p>
                   ) : null}
                 </Link>{" "}
+                {data && data.email == "rohan1d20@gmail.com" && (
+                  <Link to={"/dashboard"}>
+                    <p onClick={() => setMenu(!menu)} className={link()}>
+                      Dashboard
+                    </p>
+                  </Link>
+                )}
               </div>
             ) : null}
           </div>
