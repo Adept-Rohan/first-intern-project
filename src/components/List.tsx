@@ -37,7 +37,7 @@ const List: React.FC<Props> = ({ input }) => {
   const [filtreredData, setFileredData] = useState<ItemFiltered[] | null>(null);
   const navigate = useNavigate();
 
-  // const [searchStatus, setSearchStatus] = useState(true);
+  const [searchStatus, setSearchStatus] = useState(true);
 
   let inputData = input;
   console.log(inputData);
@@ -54,11 +54,12 @@ const List: React.FC<Props> = ({ input }) => {
     });
 
     setFileredData(filteredValue);
+    setSearchStatus(!searchStatus);
   }, [inputData]);
 
   const handleNavigate = (id: number) => {
     navigate(`/product/${id}`);
-    // setSearchStatus(!searchStatus);
+    setSearchStatus(!searchStatus);
   };
 
   return (
@@ -67,6 +68,7 @@ const List: React.FC<Props> = ({ input }) => {
         <ul className="z-100 flex flex-col items-center justify-between">
           {inputData !== "" &&
             filtreredData &&
+            searchStatus &&
             filtreredData?.map((item: ItemFiltered) => (
               <div
                 className="bg-gray-50 w-[450px] z-50 h-auto flex items-center justify-between hover:bg-slate-100 transition-all duration-100 ease-in-out cursor-pointer"

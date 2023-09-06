@@ -67,7 +67,11 @@ const PopUp = (props: ButtonProps) => {
               <p className={error()}>{errors?.address?.message}</p>
             </div>
             <div className="mt-6">
-              <Button type="submit" variant="outlined">
+              <Button
+                onClick={props.handleClick}
+                type="submit"
+                variant="outlined"
+              >
                 Submit
               </Button>
             </div>
